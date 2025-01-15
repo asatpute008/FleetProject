@@ -5,7 +5,6 @@ import java.util.NoSuchElementException;
 
 import org.junit.Assert;
 import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -120,7 +119,7 @@ public class Customer_objects {
 	
 	
 	//Add New Address
-    @FindBy (xpath="//button[text()='Add New Address']")
+    @FindBy (xpath="/html/body/main/div/div[2]/div[2]/div/div[1]/div/div/div/div[2]/button[1]")
     WebElement Add_New_Address_Button;
 	
 	public void click_on_customer_tab() {
