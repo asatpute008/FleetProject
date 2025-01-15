@@ -34,15 +34,17 @@ public class Base_class {
 	
 	public void screen_shot(String Filename, String folderName) throws IOException {
 		//Take screen shot 
-		File scr_img = ((TakesScreenshot) Idriver).getScreenshotAs(OutputType.FILE);
-
-		// create file name 
-		String date_time = new SimpleDateFormat("yyyyMMddHHmmss").format(new Date());
-		String create_image_name = Filename + date_time + ".png";
+//		File scr_img = ((TakesScreenshot) Idriver).getScreenshotAs(OutputType.FILE);
+//
+//		// create file name 
+//		String date_time = new SimpleDateFormat("yyyyMMddHHmmss").format(new Date());
+//		String create_image_name = Filename + date_time + ".png";
+//		
+//		File  destination = new File("C:\\Users\\Aniket Satpute\\eclipse-workspace\\FleetProject\\target\\Result\\screen_shot\\"+folderName+"\\"+create_image_name);
+//		destination.getParentFile().mkdirs();
+//		Files.copy(scr_img, destination);
 		
-		File  destination = new File("C:\\Users\\Aniket Satpute\\eclipse-workspace\\FleetProject\\target\\Result\\screen_shot\\"+folderName+"\\"+create_image_name);
-		destination.getParentFile().mkdirs();
-		Files.copy(scr_img, destination);
+		System.out.println("screen shot class not taking");
 		
 	}
 	
