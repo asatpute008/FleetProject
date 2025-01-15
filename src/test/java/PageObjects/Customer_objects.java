@@ -117,10 +117,14 @@ public class Customer_objects {
 	@FindBy (xpath="//button[text()='Submit']")
 	WebElement Submit_button;
 	
-	
 	//Add New Address
     @FindBy (xpath="/html/body/main/div/div[2]/div[2]/div/div[1]/div/div/div/div[2]/button[1]")
     WebElement Add_New_Address_Button;
+    
+    //Carrier Tab
+    @FindBy (xpath="//button[@class='flex-1 relative px-6 py-1.5 text-base font-semibold rounded-md transition-colors duration-200 text-white/70 hover:text-white']")
+    
+    WebElement Carrier_Tab;
 	
 	public void click_on_customer_tab() {
 		Assert.assertEquals( Menu_customer_Tab.getText(), "Customers");
@@ -373,5 +377,8 @@ public class Customer_objects {
     	Add_New_Address_Button.click();
     }
 	  
+    public void Tap_Carrier_Tab() {
+    	Carrier_Tab.click();;
+    }
 	
 }

@@ -1,5 +1,5 @@
 
-Feature: Customer Onboarding form
+Feature: Customer Onboarding form for Broker 
 
 Scenario Outline: Add single customer with all details
 Given I am on dashboard<ID> and <password>
@@ -80,3 +80,7 @@ Then Verify_the_New_address
 Examples:
 | ID 										 | password |Companyname| EIN	   | rep_name		 | website       | Street		 			| City | State | postCode | country | BookEmail      | Instruction    					    |
 |fokisaj290@edectus.com  | Fleet@123|RR_Steel   | 447788 | Sara_Sharma | www.royal.com |Main_street001  | YK   | FL    | 987678   | USA     | royal.book.com | special_instruction_customer |
+
+
+
+

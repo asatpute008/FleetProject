@@ -6,13 +6,23 @@ import java.io.IOException;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.PageFactory;
 
 import PageObjects.Base_class;
 import PageObjects.Customer_objects;
 import io.cucumber.java.en.*;
 
 public class Customer_onboarding {
-	WebDriver driver = null;
+	WebDriver driver;
+	
+	public Customer_onboarding(WebDriver Ndriver) {
+		this.driver=Ndriver;
+	}
+	
+	public Customer_onboarding() {
+		//No arguments
+	}
+	
 	Signin login = new Signin(driver);
 	String Company_name;
 	String State ;
@@ -143,6 +153,14 @@ public class Customer_onboarding {
 		base.screen_shot("speciInstruction", "Customer");
 		
 	}
+	
+	@And("^Tap_On_Carrier_Tab$")
+	public void tap_on_carrirer_Tab() throws InterruptedException {
+		Thread.sleep(500);
+		Customer_objects Form = new Customer_objects(login.driver);
+		Form.Tap_Carrier_Tab();
+	}
+	
 	@And("^Provide the Business hour(.*) (.*)$")
 	public void Provide_the_business_hores(String startTime, String endTime) throws InterruptedException, IOException {
 		Customer_objects Form = new Customer_objects(login.driver);

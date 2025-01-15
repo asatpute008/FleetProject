@@ -7,8 +7,10 @@ import io.cucumber.junit.CucumberOptions;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(
-		features= {"src\\test\\resources\\Customers\\Customer_form.feature","src\\test\\resources\\Login\\Login.feature"},
-		glue = {"Customer_oboarding","Signin.java","StepDefination"},
+		features= {"src\\test\\resources\\Customers\\Customer_form.feature",
+				    "src\\test\\resources\\Login\\Login.feature",
+				    "src\\test\\resources\\Customers\\Carrier_Customer_Onboarding.feature"},
+		glue = {"Customer_oboarding.java","Signin.java","StepDefination"},
 		monochrome = true,
 		plugin = {"pretty", "html: target/Result/report.html"}
 	
