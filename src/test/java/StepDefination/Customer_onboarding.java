@@ -6,8 +6,6 @@ import java.io.IOException;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.support.PageFactory;
-
 import PageObjects.Base_class;
 import PageObjects.Customer_objects;
 import io.cucumber.java.en.*;
@@ -53,12 +51,11 @@ public class Customer_onboarding {
 		Company_name = C_name;
 		Customer_objects Form = new Customer_objects(login.driver);
 		Base_class base = new Base_class(login.driver);
-		
+		Thread.sleep(500);
 		Form.Enter_Company_details(C_name, EIN, rep_name, website);
 		Thread.sleep(1000);
 		base.screen_shot("Company_details", "Customer");
-		
-		
+			
 	}
 	
 	@And("^Provide the company name(.*)$")
@@ -96,7 +93,7 @@ public class Customer_onboarding {
 	@And("^Provide the Address Details(.*) (.*) (.*) (.*) (.*)$")
 	public void Provide_the_address_Details(String Street, String City, String state, String post_code, String country) throws InterruptedException, IOException {
 		Customer_objects Form = new Customer_objects(login.driver);
-		
+		Thread.sleep(500);
 		Form.Enter_address(Street, City, state, post_code, country);
 		Thread.sleep(500);
 		Base_class base = new Base_class(login.driver);
@@ -109,6 +106,7 @@ public class Customer_onboarding {
 		 
 		State = state;
 		Customer_objects Form = new Customer_objects(login.driver);
+		Thread.sleep(500);
 		Form.New_Enter_address(Street, City, state, post_code, country);
 		Thread.sleep(500);
 		Base_class base = new Base_class(login.driver);

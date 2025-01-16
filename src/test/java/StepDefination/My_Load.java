@@ -4,9 +4,7 @@ import java.awt.AWTException;
 import java.io.IOException;
 
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-
-import PageObjects.Load_Objects;
+import PageObjects.My_Load_Objects;
 import io.cucumber.java.en.*;
 
 public class My_Load {
@@ -15,25 +13,30 @@ public class My_Load {
 	WebDriver driver;
 	//Customer_onboarding login = new Customer_onboarding(driver);
 	
-	 Customer_onboarding login;
+	 Signin login = new Signin(driver);
 
-	    public My_Load() {
-	        // Initialize the WebDriver (e.g., ChromeDriver)
-	        this.driver = new ChromeDriver();
-	        this.login = new Customer_onboarding(driver);
-	    }
 	
 	@Given("^Open dashboard(.*) and (.*)$")
 	public void I_am_on_dashboard(String ID, String Password) throws InterruptedException, AWTException, IOException {
-		
-		login.I_am_on_dashboard(ID, Password);
+		login.I_have_login_panel();
+    	login.i_provide_id_and_password(ID, Password);
+    	login.tap_on_submit_button();
+    	login.user_should_be_logged_in();
 	}
 	
 	@And("^Tap on My_load sub module$")
 	public void Tap_on_My_load_sub_module() throws InterruptedException {
-		Load_Objects Menu = new Load_Objects(login.driver);
+		My_Load_Objects Menu = new My_Load_Objects(login.driver);
 		Thread.sleep(1000);
-		Menu.Tap_on_my_load();
+		Menu.Tap_on_my_load();		
+		Thread.sleep(1000);
+	    Menu.Tap_on_create_load();
+	    Thread.sleep(1000);
+	    Menu.Select_Transport_Type("FTL (Full Truckload)");
+	    Thread.sleep(1000);
+	    Menu.Select_Transport_Type("LTL (Less Than Truckload)");
+	    Thread.sleep(1000);
+	    Menu. Select_bill_To();
 	}
 	
 }

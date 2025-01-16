@@ -43,7 +43,7 @@ public class Base_class {
 //		File  destination = new File("C:\\Users\\Aniket Satpute\\eclipse-workspace\\FleetProject\\target\\Result\\screen_shot\\"+folderName+"\\"+create_image_name);
 //		destination.getParentFile().mkdirs();
 //		Files.copy(scr_img, destination);
-		
+//		
 		System.out.println("screen shot class not taking");
 		
 	}
