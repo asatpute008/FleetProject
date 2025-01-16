@@ -36,7 +36,12 @@ public class My_Load {
 	    Thread.sleep(1000);
 	    Menu.Select_Transport_Type("LTL (Less Than Truckload)");
 	    Thread.sleep(1000);
-	    Menu. Select_bill_To();
+	    Menu. Select_bill_To(null);
+	    Thread.sleep(500);
+	    Menu.Add_Multiple_PO_numbers("1124", 5);
+	    Thread.sleep(500);
+	    Menu.Delete_PO_number(5);
+	    
 	}
 	
 }
