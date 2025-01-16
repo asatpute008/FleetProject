@@ -35,7 +35,11 @@ public class My_Load_Objects {
 	
 	@FindBy(xpath="//div[@class='px-3 h-full flex items-center justify-center border-l border-border']")
 	WebElement delete_Po_number;
-	//"//div[@class='w-full flex flex-col gap-2']/div[2]/div"
+
+//Order number 
+	@FindBy(xpath="//input[@placeholder='Enter Customer Order Number']")
+	WebElement Order_number;
+
 	public void Tap_on_my_load(){
 		MY_Load_Sub_Menu.click();
 	}
@@ -101,4 +105,15 @@ public class My_Load_Objects {
 				delete_Po_number.click();
 			}
 		}
+		
+		public void Enter_Order_Number(String Recive_number) {
+			Order_number.sendKeys(Recive_number);
+		}
+		
+		public void Enter_shipping_parameters() {
+			Idriver.findElement(By.xpath("//label[text()='Fast Shipping']"));
+		}
+		
+		
+		
 }
