@@ -49,7 +49,7 @@ public class Customer_onboarding {
 	@And("^Provide the company Details(.*) (.*) (.*) (.*)$")
 	public void Provide_the_customer_Details(String C_name, String EIN, String rep_name, String website) throws InterruptedException, IOException {
 		Customer_objects Form = new Customer_objects(login.driver);
-		if(C_name == "Random") {
+		if(C_name.equals("Random")) {
 			Company_name = Form.Random_company_name();
 		}else {
 			Company_name = C_name;
@@ -65,18 +65,18 @@ public class Customer_onboarding {
 	@And("^Provide the company name(.*)$")
 	public void Provide_the_company_name(String C_name) throws InterruptedException, IOException {
 		Customer_objects Form = new Customer_objects(login.driver);
-	   
-		if(C_name == "Random") {
+	      
+		if(C_name.equals("Random")) {
 			Company_name = Form.Random_company_name();
 		}else {
 			Company_name = C_name;
 		}
-	    Customer_objects form = new  Customer_objects(login.driver);
 	    
 	    Thread.sleep(500);
-	    form.Enter_Company_name(Company_name);
+	    Form.Enter_Company_name(Company_name);
 	    Base_class base = new Base_class(login.driver);
 		base.screen_shot("contactDetails", "Customer");
+	
 	    
 		
 	}
