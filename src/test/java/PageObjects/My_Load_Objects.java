@@ -1,6 +1,9 @@
 package PageObjects;
 
+import java.util.Arrays;
 import java.util.List;
+import java.util.NoSuchElementException;
+import java.util.Random;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -39,6 +42,17 @@ public class My_Load_Objects {
 //Order number 
 	@FindBy(xpath="//input[@placeholder='Enter Customer Order Number']")
 	WebElement Order_number;
+	
+//Cancle and submit button  
+		@FindBy(xpath="//button[text()='Cancel']")
+		WebElement Cancle_button;
+
+		@FindBy(xpath="//button[text()='Save & Continue']")
+		WebElement Submit_button;
+		
+//Time Line
+		@FindBy(xpath="//div[text()='Basic Information']")
+		WebElement Basic_information_tab;
 
 	public void Tap_on_my_load(){
 		MY_Load_Sub_Menu.click();
@@ -68,10 +82,12 @@ public class My_Load_Objects {
 				
 			if(rows.size()== 0){
 				System.out.println(rows.size()+ " - Rows not avaialable");
-			}else if(Values != null) {
+			}
+			else if(!Values.equals("NA")) {
 				Idriver.findElement(By.xpath("//div[@class='m_92253aa5 mantine-Combobox-option' and text()='"+Values+"']")).click();
 				System.out.println("Find using value" + Values);
-			}else if(rows.size()>0) {
+			}
+			else if(rows.size()>0) {
 				Idriver.findElement(By.xpath("//div[@class='m_92253aa5 mantine-Combobox-option']")).click();
 				
 				System.out.println("Add first 1");
@@ -88,14 +104,17 @@ public class My_Load_Objects {
 		
 		public void Add_Multiple_PO_numbers(String PO_number, int PO_qnt) throws InterruptedException{
 			PO_Number.sendKeys(PO_number);
+			
+			Actions tap = new Actions(Idriver);
+			tap.moveToElement(Add_Another_Number).click().perform();
 			Thread.sleep(500);
 			for(int i = 1; i< PO_qnt; i++){
-				Thread.sleep(700);
-				Actions tap = new Actions(Idriver);
-				tap.moveToElement(Add_Another_Number).click().perform();
-//				Add_Another_Number.click();
 				Thread.sleep(500);
 				PO_Number.sendKeys(PO_number +i);
+				Thread.sleep(700);
+				tap.moveToElement(Add_Another_Number).click().perform();
+//				Add_Another_Number.click();
+				
 			}
 		}
 		
@@ -109,11 +128,54 @@ public class My_Load_Objects {
 		public void Enter_Order_Number(String Recive_number) {
 			Order_number.sendKeys(Recive_number);
 		}
-		
-		public void Enter_shipping_parameters() {
-			Idriver.findElement(By.xpath("//label[text()='Fast Shipping']"));
+
+		public void Enter_shipping_parameters(int numberOfShipping) {
+
+			Random random = new Random();
+			List<String> shippingTypes = Arrays.asList("Fast Shipping", "ELD Tracking", "Hazardous Commodity","Exclusive Use", "Food Grade Trailer", "CTPAT", "Bonded", "Oversized","Overweight");
+
+			for(int i =0; i< numberOfShipping; i++) {
+
+				int number = random.nextInt(shippingTypes.size());
+
+				WebElement check_box = Idriver.findElement(By.xpath("//label[text()='"+shippingTypes.get(number)+"']"));
+				Actions taps = new Actions(Idriver);
+				taps.moveToElement(check_box).click().perform();
+			}
+
 		}
 		
+
+		public void tap_shipping_parameters(String name) {
+			WebElement check_box = Idriver.findElement(By.xpath("//label[text()='"+name+"']"));
+			Actions taps = new Actions(Idriver);
+			taps.moveToElement(check_box).click().perform();
+		}
 		
+
+		public void tap_on_cancel_button() {
+
+			Cancle_button.click();
+		}
+
+		public void tap_on_Submit_button() {
+
+			Submit_button.click();
+		}
 		
+		public void tap_on_basic_info() {
+			Actions taps = new Actions(Idriver);
+			taps.moveToElement(Basic_information_tab).click().perform();
+		}
+		
+		public boolean verify_PO_number(String verify) {
+			boolean return_value = false;
+			try{
+				boolean check = Idriver.findElement(By.xpath("//input[@value='"+verify+"']")).isDisplayed();
+				return_value = check;
+			}catch(NoSuchElementException e){
+				return_value = false;
+			}
+			return return_value;
+		}
 }
