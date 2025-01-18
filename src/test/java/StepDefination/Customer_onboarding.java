@@ -75,9 +75,11 @@ public class Customer_onboarding {
 		}else {
 			Company_name = C_name;
 		}
-	    
+		
+		Customer_objects form = new  Customer_objects(login.driver);
+
 	    Thread.sleep(500);
-	    Form.Enter_Company_name(Company_name);
+	    form.Enter_Company_name(Company_name);
 	    Base_class base = new Base_class(login.driver);
 		base.screen_shot("contactDetails", "Customer");	
 	}
