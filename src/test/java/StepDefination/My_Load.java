@@ -6,6 +6,8 @@ import java.util.NoSuchElementException;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+
+import PageObjects.Base_class;
 import PageObjects.My_Load_Objects;
 import io.cucumber.java.After;
 import io.cucumber.java.en.*;
@@ -124,11 +126,12 @@ public class My_Load {
 	}
 	
 	@Then("^Display the error response on PO number (.*)$")
-	public void verify_PO_Number(String Error) {
+	public void verify_PO_Number(String Error) throws InterruptedException {
 		boolean value = false;
 				try {
-					login.driver.findElement(By.xpath("//div[text()='" +Error+"']")).isDisplayed();
-					value = true;
+					 Thread.sleep(500);
+					 value = login.driver.findElement(By.xpath("//div[text()='" +Error+"']")).isDisplayed();
+					
 				}catch(NoSuchElementException e) {
 					value = false;
 				}
@@ -140,8 +143,9 @@ public class My_Load {
 	
 	@After
 	public void AfterAll() {
-		Signin Action = new Signin(login.driver);
-		Action.close_window();
+		
+		Base_class actions = new Base_class(login.driver);
+		actions.close_window();
 		
 	}
 	

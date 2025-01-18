@@ -6,6 +6,8 @@ import java.io.IOException;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.PageFactory;
+
 import PageObjects.Base_class;
 import PageObjects.Customer_objects;
 import io.cucumber.java.en.*;
@@ -15,6 +17,8 @@ public class Customer_onboarding {
 	
 	public Customer_onboarding(WebDriver Ndriver) {
 		this.driver=Ndriver;
+		
+		PageFactory.initElements( Ndriver, this);
 	}
 	
 	public Customer_onboarding() {
@@ -75,11 +79,9 @@ public class Customer_onboarding {
 	    Thread.sleep(500);
 	    Form.Enter_Company_name(Company_name);
 	    Base_class base = new Base_class(login.driver);
-		base.screen_shot("contactDetails", "Customer");
-	
-	    
-		
+		base.screen_shot("contactDetails", "Customer");	
 	}
+	
 	
 	@And("^Provide the contact Details(.*) (.*)$")
 	public void Provide_the_contact_Details(String mobile, String email) throws InterruptedException, IOException {

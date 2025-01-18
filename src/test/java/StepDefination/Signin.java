@@ -107,7 +107,6 @@ public class Signin {
 
 				System.out.println("Faild to logged in");
 				Base_details.screen_shot("Fail", "Signing");			
-
 			}
 		}
 
