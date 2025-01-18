@@ -74,8 +74,9 @@ public class My_Load_Objects {
 		}
 		
 	//Select Bill to 
-		public void Select_bill_To(String Values) {
+		public void Select_bill_To(String Values) throws InterruptedException {
 			
+			Thread.sleep(1000);
 			Idriver.findElement(By.xpath("//input[@class='m_8fb7ebe7 mantine-Input-input mantine-InputBase-input']")).click();
 			
 			List<WebElement> rows = Idriver.findElements(By.xpath("//div[@class='m_92253aa5 mantine-Combobox-option']"));

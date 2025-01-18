@@ -128,8 +128,9 @@ public class Customer_objects {
     
     WebElement Carrier_Tab;
 	
-	public void click_on_customer_tab() {
+	public void click_on_customer_tab() throws InterruptedException {
 		Assert.assertEquals( Menu_customer_Tab.getText(), "Customers");
+		Thread.sleep(500);
 		Menu_customer_Tab.click();	
 	}
 	
