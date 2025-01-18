@@ -68,17 +68,17 @@
         <version>1.2.11</version>
     </dependency>
     
-<dependency>
-    <groupId>com.github.javafaker</groupId>
-    <artifactId>javafaker</artifactId>
-    <version>1.0.2</version>
-    <exclusions>
-        <exclusion>
+    <dependency>
+        <groupId>com.github.javafaker</groupId>
+        <artifactId>javafaker</artifactId>
+        <version>1.0.2</version>
+        <exclusions>
+           <exclusion>
             <groupId>org.yaml</groupId>
             <artifactId>snakeyaml</artifactId>
-        </exclusion>
-    </exclusions>
-</dependency>
+           </exclusion>
+        </exclusions>
+    </dependency>
 
     <dependency>
     	<groupId>API_testing</groupId>
@@ -86,6 +86,7 @@
     	<version>0.0.1-SNAPSHOT</version>
     </dependency>
    </dependencies>
+   
   <build>
 	<pluginManagement>
 		<plugins>
