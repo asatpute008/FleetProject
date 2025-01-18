@@ -11,6 +11,8 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import com.github.javafaker.Faker;
+
 public class Customer_objects {
 	
 	WebDriver Idriver;
@@ -381,4 +383,16 @@ public class Customer_objects {
     	Carrier_Tab.click();;
     }
 	
+    public String Random_company_name() {
+    	Faker fekar = new Faker();
+    	String start = fekar.options().option("Tech", "Bright", "Future", "Smart", "Prime", "Next", "Global", "Quantum", "Dynamic", "Vision", "Apex", "Elite", "Stellar", "Nova", "Infinite","Rapid", "Superior", "Advanced", "Core", "Legacy");
+		String mid = fekar.options().option("Solutions", "Innovations", "Creations", "Ventures", "Concepts", "Systems", "Technologies", "Dynamics", "Developments", "Enterprises","Products", "Networks", "Insights", "Strategies", "Partners","Designs", "Services", "Brands", "Operations", "Foundations");
+		String last = fekar.options().option("Inc", "Ltd", "Corp", "Group", "Systems", "Con", "Industry", "Enterprises", "Technologies", "Innovations","Creations", "Network", "Dynamics", "Ventures", "Holdings", "Concepts", "Works", "Labs", "Partners");
+		String symbole = fekar.options().option( "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z");
+
+		String company_name = start+" "+mid+" "+last+" "+"-"+symbole;		
+
+		return company_name;
+    	
+    }
 }
