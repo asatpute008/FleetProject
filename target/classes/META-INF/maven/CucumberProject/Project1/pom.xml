@@ -80,11 +80,6 @@
         </exclusions>
     </dependency>
 
-    <dependency>
-    	<groupId>API_testing</groupId>
-    	<artifactId>API_testing</artifactId>
-    	<version>0.0.1-SNAPSHOT</version>
-    </dependency>
    </dependencies>
    
   <build>
