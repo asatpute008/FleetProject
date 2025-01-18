@@ -1,16 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: Test_runner.Run_file
 -------------------------------------------------------------------------------
-Tests run: 2, Failures: 0, Errors: 2, Skipped: 0, Time elapsed: 70.27 s <<< FAILURE! -- in Test_runner.Run_file
-Carrier Customer Onboarding.In Carrier Add single customer with company name and address -- Time elapsed: 26.37 s <<< ERROR!
-java.lang.NullPointerException: Cannot invoke "org.openqa.selenium.WebDriver.quit()" because "this.Idriver" is null
-	at PageObjects.Base_class.close_window(Base_class.java:52)
-	at StepDefination.Signin.close_window(Signin.java:119)
-	at StepDefination.My_Load.AfterAll(My_Load.java:144)
-
-Carrier Customer Onboarding.In Carrier Add single customer with all details -- Time elapsed: 42.87 s <<< ERROR!
-java.lang.NullPointerException: Cannot invoke "org.openqa.selenium.WebDriver.quit()" because "this.Idriver" is null
-	at PageObjects.Base_class.close_window(Base_class.java:52)
-	at StepDefination.Signin.close_window(Signin.java:119)
-	at StepDefination.My_Load.AfterAll(My_Load.java:144)
-
+Tests run: 13, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 321.5 s -- in Test_runner.Run_file

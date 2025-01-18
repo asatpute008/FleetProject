@@ -1,20 +1,12 @@
 package PageObjects;
 
-import java.io.File;
 import java.io.IOException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-
-import org.openqa.selenium.OutputType;
-import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 
-import com.google.common.io.Files;
-
 public class Base_class {
 	
-	WebDriver Idriver;
+	public WebDriver Idriver;
 	
 	public Base_class(WebDriver rdriver) {
 		Idriver = rdriver;	
@@ -49,7 +41,12 @@ public class Base_class {
 	}
 	
 	public void close_window() {
-		Idriver.quit();
+		 if (Idriver != null) {
+	            Idriver.quit();
+	            System.out.println("WebDriver quit successfully.");
+	        } else {
+	            System.out.println("WebDriver instance is null. Cannot quit.");
+	        }
 	}
 	
 }

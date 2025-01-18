@@ -15,7 +15,7 @@ import io.cucumber.java.en.*;
 public class My_Load {
 
 	
-	WebDriver driver;
+	public static WebDriver driver;
 	//Customer_onboarding login = new Customer_onboarding(driver);
 	
 	 Signin login = new Signin(driver);
@@ -144,8 +144,12 @@ public class My_Load {
 	@After
 	public void AfterAll() {
 		
-		Base_class actions = new Base_class(login.driver);
-		actions.close_window();
+		if (login.driver != null) { // Ensure WebDriver is initialized
+            Base_class actions = new Base_class(login.driver);
+            actions.close_window(); // Close the browser
+        } else {
+            System.out.println("WebDriver is null. Nothing to close.");
+        }
 		
 	}
 	
