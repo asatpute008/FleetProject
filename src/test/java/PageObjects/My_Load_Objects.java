@@ -54,7 +54,9 @@ public class My_Load_Objects {
 		@FindBy(xpath="//div[text()='Basic Information']")
 		WebElement Basic_information_tab;
 
-	public void Tap_on_my_load(){
+	public void Tap_on_my_load() throws InterruptedException{
+		Idriver.findElement(By.xpath("//span[text()='Broker']")).click();
+		Thread.sleep(500);
 		MY_Load_Sub_Menu.click();
 	}
 	
@@ -178,5 +180,23 @@ public class My_Load_Objects {
 				return_value = false;
 			}
 			return return_value;
+		}
+		
+		public void pickupDate(int Date) throws InterruptedException {
+			Thread.sleep(500);
+			Idriver.findElement(By.xpath("//span[@class='text-textPlaceholder']")).click();
+			Thread.sleep(500);
+			Idriver.findElement(By.xpath("//button[text()='"+Date+"']")).click();
+			Thread.sleep(500);
+		}
+		
+		public void FCFS(String PickupTime, String DeliveryTime) throws InterruptedException {
+			Thread.sleep(500);
+			Idriver.findElement(By.xpath("//button[@value='FIRST COME FIRST SERVE']")).click();
+			Thread.sleep(500);		
+			Idriver.findElement(By.xpath("/html/body/div[3]/div/div/div[2]/section/div/div/div/div/div[2]/div[2]/div[1]/tbody/div/div[2]/div[2]/div/div/div[1]/div[1]/div[2]/div/div[14]/div[2]/div[1]/input")).sendKeys(PickupTime);
+			Thread.sleep(500);		
+			Idriver.findElement(By.xpath("/html/body/div[3]/div/div/div[2]/section/div/div/div/div/div[2]/div[2]/div[1]/tbody/div/div[2]/div[2]/div/div/div[1]/div[1]/div[2]/div/div[15]/div[2]/div[1]/input")).sendKeys(DeliveryTime);
+			Thread.sleep(500);	
 		}
 }

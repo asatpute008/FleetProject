@@ -7,9 +7,7 @@ import java.util.NoSuchElementException;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
-import PageObjects.Base_class;
 import PageObjects.My_Load_Objects;
-import io.cucumber.java.After;
 import io.cucumber.java.en.*;
 
 public class My_Load {
@@ -32,6 +30,7 @@ public class My_Load {
 	@And("^Tap on My_load sub module$")
 	public void Tap_on_My_load_sub_module() throws InterruptedException {	
 		My_Load_Objects main = new My_Load_Objects(login.driver);
+		
 		Thread.sleep(1500);
 		main.Tap_on_my_load();
 	}
@@ -94,11 +93,19 @@ public class My_Load {
 	    main.tap_shipping_parameters(Name);
 	}
 	
+	@And("^Select Pickup Date (.*)$")
+	public void Provide_pickupDate(int DATE) throws InterruptedException {
+		My_Load_Objects main = new My_Load_Objects(login.driver);
+		main.pickupDate( DATE);
+		
+	}
+	
 	@When("^Tap on submit button$")
 	public void Submit_form() throws InterruptedException {
 		My_Load_Objects main = new My_Load_Objects(login.driver);
 		Thread.sleep(500);
 	    main.tap_on_Submit_button();
+	    Thread.sleep(5000);
 	}
 	
 	@When("^Tap on Cancel button$")
@@ -108,11 +115,25 @@ public class My_Load {
 	    main.tap_on_cancel_button();
 	}
 	
+	@And("^Provide Shipper Name (.*)$")
+	public void Provide_Shipper_Name(String Bill_value) throws InterruptedException {
+		My_Load_Objects main = new My_Load_Objects(login.driver);
+		Thread.sleep(1000);
+	    main. Select_bill_To(Bill_value);
+		
+	}
+	
+	@And("^Select Pickup Type FCFS$")
+	public void Provide_FCFS() throws InterruptedException {
+		My_Load_Objects main = new My_Load_Objects(login.driver);
+		main.FCFS("07", "11");
+		Thread.sleep(500);
+	}
+	
 	@Then("^Basic information successfully submited (.*)$")
 	public void Verify_form(String verify_po) throws InterruptedException {
 		My_Load_Objects main = new My_Load_Objects(login.driver);
 		
-		   Thread.sleep(5000);
 		    main.tap_on_basic_info();
 		    Thread.sleep(500);
 		    boolean verify = main.verify_PO_number(verify_po);
@@ -141,18 +162,18 @@ public class My_Load {
 		}
 	}
 	
-	@After
-	public void AfterAll() {
-		
-		if (login.driver != null) { // Ensure WebDriver is initialized
-            Base_class actions = new Base_class(login.driver);
-            actions.close_window(); // Close the browser
-        } else {
-            System.out.println("WebDriver is null. Nothing to close.");
-        }
-		
-	}
-	
+//	@After
+//	public void AfterAll() {
+//		
+//		if (login.driver != null) { // Ensure WebDriver is initialized
+//            Base_class actions = new Base_class(login.driver);
+//            actions.close_window(); // Close the browser
+//        } else {
+//            System.out.println("WebDriver is null. Nothing to close.");
+//        }
+//		
+//	}
+//	
 		
 	
 }
