@@ -7,7 +7,9 @@ import java.util.NoSuchElementException;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
+import PageObjects.Base_class;
 import PageObjects.My_Load_Objects;
+import io.cucumber.java.After;
 import io.cucumber.java.en.*;
 
 public class My_Load {
@@ -31,14 +33,14 @@ public class My_Load {
 	public void Tap_on_My_load_sub_module() throws InterruptedException {	
 		My_Load_Objects main = new My_Load_Objects(login.driver);
 		
-		Thread.sleep(1500);
+		Thread.sleep(2000);
 		main.Tap_on_my_load();
 	}
 	
 	@And("^Open Load form$")
 	public void Open_Load_Form() throws InterruptedException {
 		My_Load_Objects main = new My_Load_Objects(login.driver);
-		Thread.sleep(1500);
+		Thread.sleep(2000);
 	    main.Tap_on_create_load();
 	}
 	
@@ -162,18 +164,18 @@ public class My_Load {
 		}
 	}
 	
-//	@After
-//	public void AfterAll() {
-//		
-//		if (login.driver != null) { // Ensure WebDriver is initialized
-//            Base_class actions = new Base_class(login.driver);
-//            actions.close_window(); // Close the browser
-//        } else {
-//            System.out.println("WebDriver is null. Nothing to close.");
-//        }
-//		
-//	}
-//	
+	@After
+	public void AfterAll() {
+		
+		if (login.driver != null) { // Ensure WebDriver is initialized
+            Base_class actions = new Base_class(login.driver);
+            actions.close_window(); // Close the browser
+        } else {
+            System.out.println("WebDriver is null. Nothing to close.");
+        }
+		
+	}
+	
 		
 	
 }

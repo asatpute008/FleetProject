@@ -18,7 +18,7 @@ And Close_Window
 
 Examples:
 | ID 								     | password |Companyname| EIN	   | rep_name		 | website       | mobile		  | email			 	   | altmobile | altemail     | Street				 | City | State | postCode | country | BookEmail      | Instruction    					     | startTime | endTime |
-|fokisaj290@edectus.com  | Fleet@123|Random     | 447788 | Sara_Sharma | www.royal.com | 9865768576 | royal@mail.com | 859889569 | alt@mail.com | Main_street001 | YK   | FL    | 987678   | USA     | royal.book.com | special_instruction_customer | 04:00     | 15:00   |
+|asatpute008@gmail.com   | Pass@123 |Random     | 447788 | Sara_Sharma | www.royal.com | 9865768576 | royal@mail.com | 859889569 | alt@mail.com | Main_street001 | YK   | FL    | 987678   | USA     | royal.book.com | special_instruction_customer | 04:00     | 15:00   |
 
 
  Scenario Outline: Add single customer with company name and address
@@ -33,7 +33,7 @@ Examples:
  
 Examples:
 | ID 										| password |Companyname| Street				  | City | State | postCode | country |
-|fokisaj290@edectus.com | Fleet@123|Random     | Main_street001 | YK   | FL    | 987678   | USA     |
+|asatpute008@gmail.com  | Pass@123 |Random     | Main_street001 | YK   | FL    | 987678   | USA     |
 
  
  Scenario Outline: Add customer without company name
@@ -47,7 +47,7 @@ Examples:
  
  Examples:
 | ID 										| password |Street				  | City | State | postCode | country | mobile		 | email			 	  |Error   									|
-|fokisaj290@edectus.com | Fleet@123|Main_street001  | YK   | FL    | 987678   | USA     | 9865768576 | royal@mail.com |Company Name is required |
+|asatpute008@gmail.com  | Pass@123 |Main_street001  | YK   | FL    | 987678   | USA     | 9865768576 | royal@mail.com |Company Name is required |
 
 Scenario Outline: Add customer without Address
  Given I am on dashboard<ID> and <password>
@@ -62,8 +62,8 @@ Scenario Outline: Add customer without Address
  And Close_Window
  
  Examples:
-| ID 										| password |Companyname  |Error   					 |Error1   				 | Error2   					 |Error3  								|Error4  					  |
-|fokisaj290@edectus.com | Fleet@123|Random       |Street is required |City is required | Province is required|Postal Code is required |Country is required|
+| ID 										| password |Companyname  |Error   					 |Error1   				 | Error2   					       |Error3  								         |Error4  					  |
+|asatpute008@gmail.com  | Pass@123 |Random       |Street is required |City is required | Province/State is required|Postal Code/Zip Code is required |Country is required |
 
 Scenario Outline: Add Extra address
 Given I am on dashboard<ID> and <password>
@@ -79,7 +79,7 @@ Then Verify_the_New_address
 
 Examples:
 | ID 										 | password |Companyname| EIN	   | rep_name		 | website       | Street		 			| City | State | postCode | country | BookEmail      | Instruction    					    |
-|fokisaj290@edectus.com  | Fleet@123|Random     | 447788 | Sara_Sharma | www.royal.com |Main_street001  | YK   | FL    | 987678   | USA     | royal.book.com | special_instruction_customer |
+|asatpute008@gmail.com   | Pass@123 |Random     | 447788 | Sara_Sharma | www.royal.com |Main_street001  | YK   | FL    | 987678   | USA     | royal.book.com | special_instruction_customer |
 
 
 

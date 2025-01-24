@@ -19,5 +19,5 @@ Feature: Title of your feature
  And Select Pickup Type FCFS
 
  Examples:
-| ID 										|password |load_type            |Customer|POnumber|Quntity |Order_No |Shipping_Numbers|Type_Name     |DATE|
-|hibaw76347@downlor.com |Pass@123 |FTL (Full Truckload) |NA      |1144		 |1				|23142    |2               |Fast Shipping |25  |
+| ID 										|password |load_type            |Customer|POnumber |Quntity |Order_No |Shipping_Numbers|Type_Name     |DATE|
+|asatpute008@gmail.com  |Pass@123 |FTL (Full Truckload) |NA      |1144		 |1				|23142    |2               |Fast Shipping |25  |

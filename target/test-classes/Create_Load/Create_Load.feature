@@ -16,10 +16,11 @@ Feature: Create load in broker
  When Tap on submit button 
  #When Tap on Cancel button
  Then Basic information successfully submited <POnumber>
+ 
 
  Examples:
 | ID 										| password |load_type            |Customer|POnumber|Quntity |Order_No |Shipping_Numbers|Type_Name     |
-|fokisaj290@edectus.com | Fleet@123|FTL (Full Truckload) |NA      |1144		 |1				|23142    |2               |Fast Shipping |
+|asatpute008@gmail.com  | Pass@123|FTL (Full Truckload) |NA      |1144		 |1				|23142    |2               |Fast Shipping |
 
 
 
@@ -37,7 +38,8 @@ Given Open dashboard<ID> and <password>
  #When Tap on Cancel button
  Then Display the error response on PO number <ERROR>
  
+ 
  Examples:
 | ID 										| password |load_type            |Customer|POnumber|Quntity |Order_No |Type_Name     |DeletePO|ERROR    						|
-|fokisaj290@edectus.com | Fleet@123|FTL (Full Truckload) |NA      |1144		 |1				|23142    |Fast Shipping |1				|PO Number is required|
+|asatpute008@gmail.com  | Pass@123|FTL (Full Truckload) |NA      |1144		 |1				|23142    |Fast Shipping |1				|PO Number is required|
  

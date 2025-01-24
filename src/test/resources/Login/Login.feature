@@ -9,7 +9,7 @@ And Close Window
 
 Examples:
 | ID 										| password |
-|fokisaj290@edectus.com | Fleet@123|
 |fokisaj290@edectus.com | wrong    |
 |Wrong.mail							| Fleet@123|
 |Wrong.mail 						| wrong    |
+|asatpute008@gmail.com	| Pass@123 |

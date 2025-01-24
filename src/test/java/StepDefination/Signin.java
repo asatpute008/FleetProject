@@ -43,7 +43,6 @@ public class Signin {
 
 	}
 	
-	
 
 	@When("^I provide (.*) and (.*)-test$")
 	public void i_provide_id_and_password(String ID, String password) {
@@ -72,6 +71,12 @@ public class Signin {
 		String site = Base_details.Dashboard_Link;
 		String login_page = Base_details.baseURL;
 		String actual_site = driver.getCurrentUrl();
+		
+		System.out.println("Site 1: "+ site);
+		System.out.println("Site 2: "+ actual_site);
+		System.out.println("Site 2: "+ login_page);
+
+		
 
 		System.out.println(actual_site);
 		if(actual_site.equals(site)) {
@@ -104,7 +109,7 @@ public class Signin {
 				}
 
 			}else {
-
+				
 				System.out.println("Faild to logged in");
 				Base_details.screen_shot("Fail", "Signing");			
 			}

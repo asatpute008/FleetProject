@@ -13,13 +13,13 @@ public class Base_class {
 		PageFactory.initElements( rdriver, this);
 	}
 	
-	public String baseURL = "https://fleet-manager-development.vercel.app/auth/sign-in";
-	public String Dashboard_Link = "https://fleet-manager-development.vercel.app/admin/onboarding/broker/load-tender";
+	public String baseURL = "https://platform.fleetsyncs.com/auth/sign-in";
+	public String Dashboard_Link = "https://platform.fleetsyncs.com/admin/onboarding/broker/load-tender";
 	
 	
 	
 	public void open_chrome(){
-		Idriver.get("https://fleet-manager-development.vercel.app/auth/sign-in");	
+		Idriver.get("https://platform.fleetsyncs.com/auth/sign-in");	
 	}
 	
 	

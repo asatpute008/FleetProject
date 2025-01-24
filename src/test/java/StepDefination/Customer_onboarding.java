@@ -42,11 +42,11 @@ public class Customer_onboarding {
 	public void Open_customer_form() throws InterruptedException, IOException {
          Base_class base = new Base_class(login.driver);
 		Customer_objects customer = new Customer_objects(login.driver);
+		Thread.sleep(2000);
 		customer.click_on_customer_tab();
 	    Thread.sleep(2000);
 	    base.screen_shot("customerpage", "Customer");
     	customer.open_form();
-		
 	}
 	
 	
@@ -168,7 +168,7 @@ public class Customer_onboarding {
 	
 	@And("^Tap_On_Carrier_Tab$")
 	public void tap_on_carrirer_Tab() throws InterruptedException {
-		Thread.sleep(500);
+		Thread.sleep(2000);
 		Customer_objects Form = new Customer_objects(login.driver);
 		Form.Tap_Carrier_Tab();
 	}
