@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: Test_runner.Run_file
 -------------------------------------------------------------------------------
-Tests run: 13, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 321.5 s -- in Test_runner.Run_file
+Tests run: 13, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 346.6 s -- in Test_runner.Run_file

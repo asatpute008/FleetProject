@@ -47,7 +47,7 @@ Examples:
  
  Examples:
 | ID 										| password |Street				  | City | State | postCode | country | mobile		 | email			 	  |Error   									|
-|asatpute008@gmail.com  | Pass@123 |Main_street001  | YK   | FL    | 987678   | USA     | 9865768576 | royal@mail.com |Company Name is required |
+|asatpute008@gmail.com  | Pass@123 |Main_street001  | YK   | FL    | 987678   | USA     | 9865768576 | royal@mail.com |Company name is required |
 
 Scenario Outline: Add customer without Address
  Given I am on dashboard<ID> and <password>

@@ -371,7 +371,7 @@ public class Customer_objects {
 
     public String verify_mandatory_error(String action) {
     	
-    	String status = Idriver.findElement(By.xpath("//div[@class='text-danger text-xs font-medium px-1' and text()='"+action+"']")).getText();
+    	String status = Idriver.findElement(By.xpath("//div[text()='"+action+"']")).getText();
     	
     	return status;
     }
