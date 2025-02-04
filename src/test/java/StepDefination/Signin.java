@@ -74,7 +74,7 @@ public class Signin {
 		
 		System.out.println("Site 1: "+ site);
 		System.out.println("Site 2: "+ actual_site);
-		System.out.println("Site 2: "+ login_page);
+		System.out.println("Site 3: "+ login_page);
 
 		
 

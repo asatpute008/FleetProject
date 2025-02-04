@@ -4,6 +4,7 @@ import java.awt.AWTException;
 import java.io.IOException;
 import java.util.NoSuchElementException;
 
+import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
@@ -19,7 +20,7 @@ public class My_Load {
 	//Customer_onboarding login = new Customer_onboarding(driver);
 	
 	 Signin login = new Signin(driver);
-
+     String PickupCustomer;
 	
 	@Given("^Open dashboard(.*) and (.*)$")
 	public void I_am_on_dashboard(String ID, String Password) throws InterruptedException, AWTException, IOException {
@@ -121,8 +122,8 @@ public class My_Load {
 	public void Provide_Shipper_Name(String Bill_value) throws InterruptedException {
 		My_Load_Objects main = new My_Load_Objects(login.driver);
 		Thread.sleep(1000);
-	    main. Select_bill_To(Bill_value);
-		
+	    String Customer = main.Select_bill_To(Bill_value);
+		PickupCustomer = Customer;
 	}
 	
 	@And("^Select Pickup Type FCFS$")
@@ -130,6 +131,63 @@ public class My_Load {
 		My_Load_Objects main = new My_Load_Objects(login.driver);
 		main.FCFS("07", "11");
 		Thread.sleep(500);
+	}
+	
+	@And("^Provide Comodity$")
+	public void Provide_Comodity() throws InterruptedException {
+		My_Load_Objects main = new My_Load_Objects(login.driver);
+		main.commodity();		
+	}
+	
+	@And("^Provide Weight$")
+	public void Provide_Weight() throws InterruptedException {
+		My_Load_Objects main = new My_Load_Objects(login.driver);
+		main.pickupWeight();
+		
+	}
+	
+	@And("^Provide Pallets$")
+	public void Provide_Pallets() throws InterruptedException {
+		My_Load_Objects main = new My_Load_Objects(login.driver);
+		main.Pallets();
+		
+	}
+	
+	@And("^Provide Pallets Number$")
+	public void Provide_PalletsNumber() throws InterruptedException {
+		My_Load_Objects main = new My_Load_Objects(login.driver);
+		main.PalletsNumber();
+		
+	}
+	
+	@And("^Provide Units Number$")
+	public void Provide_UnitsNumber() throws InterruptedException {
+		My_Load_Objects main = new My_Load_Objects(login.driver);
+		main.UnitsNumber();
+	}
+	
+	@And("^Provide commodity instruction$")
+	public void Provide_commInstruction() throws InterruptedException {
+		My_Load_Objects main = new My_Load_Objects(login.driver);
+		main.commodityInstruction();
+	}
+	
+	@And("^Provide Equipments$")
+	public void Provide_Equipments() throws InterruptedException {
+		My_Load_Objects main = new My_Load_Objects(login.driver);
+		main.Equipments();
+	}
+	
+	@And("^Provide Temprature$")
+	public void Provide_Temprature() throws InterruptedException {
+		My_Load_Objects main = new My_Load_Objects(login.driver);
+		main.Temprature();
+	}
+	
+	@And("^Submit Pickup$")
+	public void submitPickup() throws InterruptedException {
+		My_Load_Objects main = new My_Load_Objects(login.driver);
+		main.SubmitPickup();
 	}
 	
 	@Then("^Basic information successfully submited (.*)$")
@@ -164,18 +222,27 @@ public class My_Load {
 		}
 	}
 	
-	@After
-	public void AfterAll() {
+	@Then("^Verify Pickup$")
+	public void VerifyPickup() {
 		
-		if (login.driver != null) { // Ensure WebDriver is initialized
-            Base_class actions = new Base_class(login.driver);
-            actions.close_window(); // Close the browser
-        } else {
-            System.out.println("WebDriver is null. Nothing to close.");
-        }
+		String Actual_Name = login.driver.findElement(By.xpath("//div[@class='border border-border rounded-lg overflow-hidden  ']/div/div/div/div/div[2]/div")).getText();
+		
+		Assert.assertEquals(Actual_Name, PickupCustomer, "Pickup customer name does not match!");
 		
 	}
 	
+//	@After
+//	public void AfterAll() {
+//		
+//		if (login.driver != null) { // Ensure WebDriver is initialized
+//            Base_class actions = new Base_class(login.driver);
+//            actions.close_window(); // Close the browser
+//        } else {
+//            System.out.println("WebDriver is null. Nothing to close.");
+//        }
+//		
+//	}
+//	
 		
 	
 }
